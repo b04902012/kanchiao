@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{amsmath} 
+\usepackage{graphicx}
+\usepackage{nopageno}
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{titlesec}
+%\usepackage{ulem}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\usepackage{pgfplots}
+%\usepackage{CJK}
+\usepackage{xeCJK}
+\setmainfont{Liberation Serif}
+\setmonofont{Hack}
+%\setmainfont{AR PL UKai TW}
+\setCJKmainfont{AR PL UKai TW}
+\renewcommand{\ttdefault}{pcr}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\XeTeXlinebreaklocale "zh"
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\pagestyle{plain}
+\setlength{\parskip}{5pt}
+\fontsize{14pt}{20pt}\selectfont
+\titleformat*{\subsection}{\Large\bfseries}
+\makeatletter
+\newenvironment{xitemize}{%
+    \@nameuse{fontitem\romannumeral\the\@itemdepth}
+    \itemize
+}{%
+    \enditemize
+}
+\makeatother
+\newcommand{\fontitem}{\Large}
+\newcommand{\fontitemi}{\normalsize}
+\newcommand{\fontitemii}{\normalsize}
+
+\begin{document}
+%\begin{center}
+%    {\Huge 2017 Winter Vacation Homework}
+%\end{center}
+
+{\huge IKEA Bed}\\
+
+\noindent{\Large Story}\\
+    你有去過IKEA嗎？IKEA 中有很多開放試躺的床，如果客人們走累了，都歡迎在上面稍做休息。但是如果一位客人來了又去，去了又來，在一張床上躺了超過一次，那麼你，一位 IKEA 的員工，就會非常不開心。因此你紀錄了每秒分別是哪位客人躺在床上。\\
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數$n$，表示你紀錄了幾秒。第二行包含$n$個非負整數，為該秒躺在床上的客人的編號。每位客人的編號都會是一個正整數，而 $0$ 則表示那張床當時無人佔用。\\
+    $1\leq n\leq 1000, 1\leq \text{編號}\leq n$.\\
+
+\noindent{\Large Output}\\
+    請輸出一行由空白隔開的、遞增的正整數，表示哪些客人躺了超過一次。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        10\\
+        10 1 2 2 10 3 3 3 2 5\\
+    }
+
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        2 10\\
+    }
+
+\noindent{\Large Hint}\\
+    在範例測試資料中，儘管客人 3 躺了三秒鐘，但由於他中間沒有離開，故只算做一次。\\
+\newpage
+
+
+
+{\huge IKEA Shelf}\\
+
+\noindent{\Large Story}\\
+    身為一個自我要求甚高的員工，你要求架子上的商品務必排列整齊，比方說，你認為架子上的商品應該按照高度來遞增排好，否則你就會非常不開心。精確來說，任何一對遞減的商品都會讓你不開心，所以你想知道遞減的商品總共有幾對。\\
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數 $n$ ，表示架子上有幾個商品。第二行包含 $n$ 個整數，分別表示每個商品的高度。\\
+    \(1\leq n\leq 100, 0\leq\text{高度}\leq 2147483647\).\\
+
+\noindent{\Large Output}\\
+    請輸出一個整數，表示遞減商品對的對數。任兩個滿足左邊比右邊高的商品被稱作一個遞減商品對。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        5\\
+        5 2 6 5 1\\
+    }
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        6\\
+    }
+
+\noindent{\Large Hint}\\
+    在範例測資中，6對的遞減商品對分別為 (0,1), (0,4), (1,4), (2,3), (2,4), (3,4). 這幾對商品都滿足左邊的比右邊的高。\\
+\newpage
+
+{\huge IKEA Meatball}\\
+
+\noindent{\Large Story}\\
+    除了家具之外， IKEA 的肉丸也很有名。在出餐的時候，他們會把肉丸排成一直線，而每個肉丸都會給你若干單位的滿足度。由於某些原因，（可能是出於方便，也可能是因為你當時胃口不是太好），你只吃 $k$ 個連續的肉丸，而你好奇你最多可以獲得多少單位的滿足度。\\
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數 $n$ ，表示總共有幾顆肉丸。而第二行則包含 $n$ 個整數，分別表示每顆肉丸能給你多少單位的滿足度。而最後一行則包含一個正整數 $k$ ，表示你打算吃幾顆肉丸。
+    $1\leq n\leq 100000, 0\leq \text{每顆肉丸的滿足度}\leq 1000, 1\leq k\leq n$.\\
+
+\noindent{\Large Output}\\
+    請輸出一個整數，表示你吃了 $k$ 顆連續的肉丸之後，最多可以獲得多少單位的滿足度。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        10\\
+        2 5 10 1 2 2 10 3 3 3\\
+        5\\
+    }
+
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        25\\
+    }
+
+\noindent{\Large Hint}\\
+    在範例測資中，如果你吃了第2、3、4、5、6 顆肉丸，你就可以獲得 25 單位的滿足度。\\
+
+\noindent{\Large Bonus}\\
+    請計算當 \(n=100000, k=50000\), 你的程式總共需要執行幾個指令。\\
+    如果時限是一秒，你會 TLE 嗎？\\
+    如果會的話，請試著想出一個能夠 AC 的作法。\\
+\newpage
+\end{document}　

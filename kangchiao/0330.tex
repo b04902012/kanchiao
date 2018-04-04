@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{amsmath} 
+\usepackage{graphicx}
+\usepackage{nopageno}
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{titlesec}
+%\usepackage{ulem}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\usepackage{pgfplots}
+%\usepackage{CJK}
+\usepackage{xeCJK}
+\setmainfont{Liberation Serif}
+\setmonofont{Hack}
+%\setmainfont{AR PL UKai TW}
+\setCJKmainfont{AR PL UKai TW}
+\renewcommand{\ttdefault}{pcr}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\XeTeXlinebreaklocale "zh"
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\pagestyle{plain}
+\setlength{\parskip}{5pt}
+\fontsize{14pt}{20pt}\selectfont
+\titleformat*{\subsection}{\Large\bfseries}
+\makeatletter
+\newenvironment{xitemize}{%
+    \@nameuse{fontitem\romannumeral\the\@itemdepth}
+    \itemize
+}{%
+    \enditemize
+}
+\makeatother
+\newcommand{\fontitem}{\Large}
+\newcommand{\fontitemi}{\normalsize}
+\newcommand{\fontitemii}{\normalsize}
+
+\begin{document}
+%\begin{center}
+%    {\Huge 2017 Winter Vacation Homework}
+%\end{center}
+
+{\huge NPSC Team}\\
+
+\noindent{\Large Story}\\
+    NPSC (National Problem Solving Contest) 是一個由台灣大學主辦的程式設計競賽。其賽制為兩個人一隊。身為一個資訊科的老師，你想要從眾多學生當中，選出兩位參加。於是你事先辦了一場比賽來作為選拔的依據。由於你認為這個比賽的默契很重要，甚至比個人的能力還重要，因此，你的標準並不是高分與否，而是要求「成績相同」。請問，在這樣的標準之下，有幾種組隊的方法？
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數 $n$，表示你有幾位學生。接下來有 $n$ 個數字，分別表示那 $n$ 為同學的成績。
+
+\noindent{\Large Output}\\
+    請輸出一個數字，表示組隊的方法數。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        10\\
+        10 1 2 2 10 3 3 3 2 5\\
+    }
+
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        7\\
+    }
+
+\newpage
+
+
+
+{\huge NPSC Rank}\\
+
+\noindent{\Large Story}\\
+    在比賽結束後，你想要知道你的學生是第幾名。這場比賽是按照解題數量作為排名的依據。解題數越多，排名越靠前。
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數 $n$ ，表示架子上有幾個商品。第二行包含 $n$ 個整數，分別表示每個商品的高度。\\
+    \(1\leq n\leq 100, 0\leq\text{高度}\leq 2147483647\).\\
+
+\noindent{\Large Output}\\
+    請輸出一個整數，表示遞減商品對的對數。任兩個滿足左邊比右邊高的商品被稱作一個遞減商品對。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        5\\
+        5 2 6 5 1\\
+    }
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        6\\
+    }
+
+\noindent{\Large Hint}\\
+    在範例測資中，6對的遞減商品對分別為 (0,1), (0,4), (1,4), (2,3), (2,4), (3,4). 這幾對商品都滿足左邊的比右邊的高。\\
+\newpage
+
+{\huge IKEA Meatball}\\
+
+\noindent{\Large Story}\\
+    除了家具之外， IKEA 的肉丸也很有名。在出餐的時候，他們會把肉丸排成一直線，而每個肉丸都會給你若干單位的滿足度。由於某些原因，（可能是出於方便，也可能是因為你當時胃口不是太好），你只吃 $k$ 個連續的肉丸，而你好奇你最多可以獲得多少單位的滿足度。\\
+
+\noindent{\Large Input}\\
+    第一行包含一個正整數 $n$ ，表示總共有幾顆肉丸。而第二行則包含 $n$ 個整數，分別表示每顆肉丸能給你多少單位的滿足度。而最後一行則包含一個正整數 $k$ ，表示你打算吃幾顆肉丸。
+    $1\leq n\leq 100000, 0\leq \text{每顆肉丸的滿足度}\leq 1000, 1\leq k\leq n$.\\
+
+\noindent{\Large Output}\\
+    請輸出一個整數，表示你吃了 $k$ 顆連續的肉丸之後，最多可以獲得多少單位的滿足度。\\
+
+\noindent{\Large Sample Input}\\
+    \texttt{
+        10\\
+        2 5 10 1 2 2 10 3 3 3\\
+        5\\
+    }
+
+
+\noindent{\Large Sample Output}\\
+    \texttt{
+        25\\
+    }
+
+\noindent{\Large Hint}\\
+    在範例測資中，如果你吃了第2、3、4、5、6 顆肉丸，你就可以獲得 25 單位的滿足度。\\
+
+\noindent{\Large Bonus}\\
+    請計算當 \(n=100000, k=50000\), 你的程式總共需要執行幾個指令。\\
+    如果時限是一秒，你會 TLE 嗎？\\
+    如果會的話，請試著想出一個能夠 AC 的作法。\\
+\newpage
+\end{document}　
