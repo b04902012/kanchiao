@@ -23,19 +23,20 @@
 
 \usepackage{xcolor}
 \usepackage{listings}
+\lstset{escapeinside={<@}{@>}}
 \definecolor{mGreen}{rgb}{0.2,0.8,0.2}
 \definecolor{mGray}{rgb}{0.5,0.5,0.5}
-\definecolor{mRed}{rgb}{0.58,0,0.82}
+\definecolor{mRed}{rgb}{1.0,0,0}
 \definecolor{backgroundColour}{rgb}{0,0,0}
 \definecolor{mWhite}{rgb}{0.9,0.9,0.9}
-\lstset{basicstyle=\ttfamily}
+\lstset{basicstyle=\tt}
 \lstdefinestyle{CStyle}{
     backgroundcolor=\color{backgroundColour},   
     commentstyle=\color{mGray},
     keywordstyle=\color{mGreen},
     numberstyle=\color{mGray},
     stringstyle=\color{mRed},
-    basicstyle=\color{mWhite},
+    basicstyle=\color{mWhite}\tt,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
@@ -147,5 +148,191 @@ int main(){
 \part{Getting Started}
 \chapter{Basic Concepts}
     In this chapter, we will introduce some basic concepts you need to know.
-    \section{}
+\section{Data Type}
+    As you have known, computers stores binary data. However, to we human beings, binary data is hard to manipulate or to read. Data types are some ways to interpret those binary data.
+   
+    \subsection{Fundamental Data Type}
+    Fundamental data types, or built-in data types, are provided by the compiler, so you can simply use it without define them.
+
+    There are 3 common fundamental data types you need to know, and will be discussed in the later chapters. They are integers (\texttt{int}), characters (\texttt{char}), and floating point numbers (\texttt{double}).
+
+    \subsection{Derived Data Type}
+    Derived data types are some data types that need to be constructed with advanced syntax. Using them, you can create new data types from fundamental data type.
+
+    There are many derived data types in C/C++, such as array, structure, union, pointer, and enumeration. We will focus on array and pointer in later chapters.
+
+\section{Keyword}
+    Keywords, or reserved words, are some words that have fixed meaning in C/C++, and you should NOT name variables after them, just like you should not name a person "He" or "They".
+
+    The following list are the keywords in C/C++.
+\begin{lstlisting}
+and              and_eq          asm
+auto             bitand          bitor
+bool             break           case
+catch            char            class
+compl            const           const_cast
+continue         default         delete
+do               double          dynamic_cast
+else             enum            explicit
+export           extern          false
+float            for             friend
+goto             if              inline
+int              long            mutable
+namespace        new             not
+not_eq           operator        or
+or_eq            private         protected 
+public           register        reinterpret_cast
+return           short           signed
+sizeof           static          static_cast
+struct           switch          template
+this             throw           true
+try              typedef         typeid
+typename         union           unsigned
+using            virtual         void
+volatile         wchar_t         while
+xor              xor_eq 
+\end{lstlisting}
+
+\section{Identifier}
+    Identifier is a kind of string that can be used to name a variable. An legal identifier only contains capital English alphabets, small English alphabets, numeric characters and underscore, and begin with non-numeric characters.
+
+    Capital English alphabets: \texttt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+    Small English alphabets: \texttt{abcdefghijklmnopqrstuvwxyz}\\
+    Numeric characters: \texttt{0123456789}\\
+    Underscore: \texttt{\_}\\
+
+Examples:
+\begin{lstlisting}
+    handsomeLiu
+    HandsomeLiu
+    HandsomeLiu012
+    handsome_liu_012
+    __handsomeLiu
+    ____
+\end{lstlisting}
+Non-examples:
+\begin{lstlisting}
+    <@\textcolor{red}{0}@>12handsomeLiu  (begin with numeric characters)
+    handsome<@\textcolor{red}{-}@>liu    (hyphen (-))
+    handsome<@\colorbox{red!20}{\color{red!20}}@>liu    (space ( ))
+\end{lstlisting}
+
+    
+\section{Variable}
+    Variable is a method to store data. You can use the variable as the value it stores.
+
+    Before using a variable, you need to declare it, which means to specify its data type and name. After declared, the data type and the name of a variable cannot be changed. A variable should be named after an identifier.
+
+\section{Statement}
+    Statements are fragments of the program that are executed in sequence. In general cases, the statements will be executed line by line, from up to down. However, there are some statements allows the program execute the statements in different order, which bring us more convenience.
+
+    \subsection{Branching Statements}
+    Branching statements allows the program do different things under different condition. There are two branching statements in C/C++. They are \texttt{if-else} and \texttt{switch}.
+    \subsection{Iteration Statements}
+    Iteration, or loop, means to do a procedure repeatedly. To start a iteration, you can use iteration statements. These statements provide different ways to control how many times the procedure will be executed. There are three iteration statements in C/C++. They are \texttt{while}, \texttt{for}, and \texttt{do}.
+    \subsection{Jump Statements}
+    Jump statements cause a jump to another statement elsewhere in the code. Generally, they are used to interrupt \texttt{switch} statement and iteration staements. The jump statements are \texttt{break}, \texttt{continue} and \texttt{goto}. 
+
+\section{Operand and Operator}
+    The operand is the operated object, while the operator is the symbol specifying the type of operation.
+
+    For example, in the operation 8+9, both 8 and 9 are operand, and + is the operator.
+
+    There are four kinds of operators in C/C++. They are arithmetic operators, relational operators, logical operators, and bitwise operators.
+
+    Arithmetic operators are used to perform mathematical computation, such as addition, substraction, and so on.
+
+    Relational operators are used for comparison the values of two operands, such as equality, inequality and so on.
+
+    Logical operators are used to manipulate some conditions, such as 'and', 'or', and 'not'.
+
+    Bitwise operators are used to perform operations on binary numbers, which will not be discussed in this book.
+
+\chapter{Structure of a C/C++ Program}
+We will use the following program as an example.
+\begin{lstlisting}[style=CStyle]
+#include<stdio.h>
+int main(){
+    printf("Handsome Liu is so handsome!\n");
+    /*This
+      is
+      a
+      comment*/
+    //This is also a comment
+}
+\end{lstlisting}
+
+\section{Including the Header Files}
+\begin{lstlisting}[style=CStyle]
+#include<stdio.h>
+\end{lstlisting}
+As mentioned before, some functions are defined in other header files. \texttt{stdio.h} is a header file provided by the compiler. \texttt{stdio} stands for STanDard Input and Output. Since \texttt{printf} is defined in \texttt{stdio.h}, we need to specify that we want to use \texttt{stdio.h}. The syntax for using a header file is
+\begin{center}\texttt{\#include< <header\_file> >}\end{center}
+\section{The \texttt{main} Function}
+\begin{lstlisting}[style=CStyle,firstnumber=2]
+int main(){
+\end{lstlisting}
+\begin{lstlisting}[style=CStyle,firstnumber=9]
+}
+\end{lstlisting}
+The \texttt{main} function is the starting point of every program. A program always start to execute from the \texttt{main} function.
+\section{Comments}
+Comments are written for human beings, not compilers. Compilers will ignore all contents inside comments.
+
+A comment can be construct by two ways, \texttt{//} or a pair of \texttt{/*}  and \texttt{*/}.
+
+All contents after \texttt{//} will be viewed as comments until the end of the line.\\
+All contents after \texttt{/*} will be viewed as comments until \texttt{*/}.\\
+
+\chapter{Basic Syntaxes}
+In this chapter, we will learn about how to implement the concepts in chapter 2.
+
+\section{Value and Literal}
+    We have learned that there are many different type of value, such as integers, characters, and floating point numbers. A literal is a representation of the value. For example, an integer 3 and a character 3 should have different representations.
+    \subsection{Integer Literal}
+        To represent a decimal integer, just type it down like in mathematics. For example, \texttt{123} represents the integer one hundred and twenty-three.
+
+    \subsection{Character Literal}
+        To represent a character, enclose the character with a pair of single quotation marks. For example, \texttt{'A'} represents the character "capital A", while \texttt{'3'} represents the character "3".
+
+    \subsection{Floating Point Number Literal}
+        TBD.
+
+\section{Variables}
+    As mentioned before, a variable can be used as the value it stores, but you should declare it before using it. In addition, you can modify the value it stores by assigning value to it.
+
+    \subsection{Declaration}
+    To declare a variable, you need to specify its data type and name. The syntax for declaring a variable is
+    \begin{center}\texttt{<data\_type> <name>;}\end{center}
+    For example, if you want to declare a variable of type integer named \texttt{number}, the syntax is \texttt{int number;}. Note that if a variable has been declared, you cannot re-declare it.
+
+    \subsection{Assignment}
+    We use an equals sign (\texttt{=}) to assign a value to a variable. Thn syntax for assigning is
+    \begin{center}\texttt{<variable\_name> = <value>;}\end{center}
+    For example, if you want to assign a character "capital C" to a variable named \texttt{c}, the syntax is \texttt{c='C';}.
+
+    \subsection{Usage}
+    A variable can be used as the value it stores. For example, suppose we have an integer variable named \texttt{num} storing \texttt{5}, then \texttt{num+3} is equivalent to \texttt{5+3}.
+
+\section{Operator}
+    \subsection{Arithmetic Operator}
+    \begin{tabular}{|c|c|c|}
+    Syntax in C/C++ &   Symbol in Mathematics  &    Explanation\\
+    \hline
+    +               &   +                      &    Addition\\
+    -               &   -                      &    Substraction\\
+    *               &   $\times$               &    Multiplication\\
+    /               &   $\div$                 &    Division\\
+    \%              &   $\mod$                 &    Modular\\
+    \end{tabular}
+    
+    While performing arthimetic operation on non-negative integer values, the result of addition, substraction and multiplicaton is just like what you've learned in your math class. For division(, and modular, \textit{resp.}), the results are the quotient(, and remainder, \textit{resp}).
+
+    For example, $11\div3=\color{blue}{3}...\color{green}{2}$, so \texttt{11/3==\color{blue}{3}}, and \texttt{11\%3==\color{green}{2}}
+
+    While performing arthimetic operation on character values, the character values will be converted into integer values according to the ASCII table firstly, then complete the integer arthimetic operation. ASCII table will be introduced in the later parts.
+
+    \subsection{Relational Operator}
+    \subsection{Logical Operator}
+    
 \end{document}　
