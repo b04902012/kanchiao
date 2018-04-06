@@ -297,6 +297,8 @@ In this chapter, we will learn about how to implement the concepts in chapter 2.
 
     \subsection{Floating Point Number Literal}
         TBD.
+    \subsection{String Literal}
+        We haven't learn string data type yet, but we can view string as a sequence of characters. To represent a string, enclose the characters sequence with a pair of double quotation marks. For example, \texttt{"Handsome Liu is so handsome!"} represents the string "Handsome Liu is so handsome!".
 
 \section{Variables}
     As mentioned before, a variable can be used as the value it stores, but you should declare it before using it. In addition, you can modify the value it stores by assigning value to it.
@@ -319,20 +321,78 @@ In this chapter, we will learn about how to implement the concepts in chapter 2.
     \begin{tabular}{|c|c|c|}
     Syntax in C/C++ &   Symbol in Mathematics  &    Explanation\\
     \hline
-    +               &   +                      &    Addition\\
-    -               &   -                      &    Substraction\\
-    *               &   $\times$               &    Multiplication\\
-    /               &   $\div$                 &    Division\\
+    \texttt{+}               &   +                      &    Addition\\
+    \texttt{-}               &   -                      &    Substraction\\
+    \texttt{*}               &   $\times$               &    Multiplication\\
+    \texttt{/}               &   $\div$                 &    Division\\
     \%              &   $\mod$                 &    Modular\\
     \end{tabular}
     
-    While performing arthimetic operation on non-negative integer values, the result of addition, substraction and multiplicaton is just like what you've learned in your math class. For division(, and modular, \textit{resp.}), the results are the quotient(, and remainder, \textit{resp}).
+    While performing arthimetic operation on non-negative integer values, the result of addition, substraction and multiplicaton is just like what you've learned in your math class. For division(, and modular, \textit{resp.}), the results are the quotient(, and remainder, \textit{resp}) The results of all the five operations are integers.
 
-    For example, $11\div3=\color{blue}{3}...\color{green}{2}$, so \texttt{11/3==\color{blue}{3}}, and \texttt{11\%3==\color{green}{2}}
+    For example, $11\div3=\color{blue}{3}...\color{red}{2}$, so \texttt{11/3==\color{blue}{3}}, and \texttt{11\%3==\color{red}{2}}
 
     While performing arthimetic operation on character values, the character values will be converted into integer values according to the ASCII table firstly, then complete the integer arthimetic operation. ASCII table will be introduced in the later parts.
 
     \subsection{Relational Operator}
+    \begin{tabular}{|c|c|c|}
+    Syntax in C/C++ &   Symbol in Mathematics  &    Explanation\\
+    \hline
+    \texttt{<}               &   <                      &    Less than\\
+    \texttt{==}              &   =                      &    Equal to\\
+    \texttt{>}               &   >                      &    Greater than\\
+    \texttt{>=}              &   $\geq$                 &    Greater than or eual to\\
+    \texttt{!=}              &   $\neq$                 &    Not equal to\\
+    \texttt{<=}              &   $\leq$                 &    Less than or equal to\\
+    \end{tabular}
+
+    The results of these relational operators will be either \texttt{true} or \texttt{false}.
+
     \subsection{Logical Operator}
+    \begin{tabular}{|c|c|c|}
+    Syntax in C/C++ &   Symbol in Mathematics  &    Explanation\\
+    \hline
+    \texttt{!}               &   $\neg$                 &    Not\\
+    \texttt{\&\&}            &   $\land$                &    And\\
+    \texttt{||}              &   $\lor$                 &    Or\\
+    \end{tabular}
+
+    The operands of logical operators should be either \texttt{true} or \texttt{false}. \\
+    For example, \texttt{(1<2) || (5==6)} is a reasonable logical operation, while \texttt{'A' \&\& 123} is not. "One less than two, or five equals to six" does make sense (even if it's false actually), but "A and one hundred and twenty-three" is nonsense.
+
+    Logical operators are often used to combined the results of relational operators.
     
-\end{document}　
+\section{Formatting Inputting and Outputting}
+    \texttt{scanf} and \texttt{printf} are functions provided by compiler and defined in \texttt{stdio.h}.
+    \subsection{The \texttt{printf()} function}
+    \texttt{printf()}, stands for printing formatted data. To output a string, say, "Handsome Liu is so handsome!", just simply put it inside the parentheses. Recall that a string is represented as a sequence of characters enclosed by a pair of double quotation marks.
+\begin{lstlisting}[style=CStyle]
+printf("Handsome Liu is so handsome!");
+//outputting "Handsome Liu is so handsome!"
+\end{lstlisting}
+    This is straightforward, but what if we need to output the value of a variable, say, an integer \texttt{num}? As expected, putting \texttt{num} inside the string does not work.
+\begin{lstlisting}[style=CStyle]
+int num=5;
+printf("num");//outputting "num" instead of "5".
+\end{lstlisting}
+    As a result, we need formatted specifier to tell the compiler you want to output a variable.
+    \subsection{Formatted Specifier}
+    \begin{tabular}{|c|c|}
+    Format specifier    &   Description\\
+    \hline
+    \texttt{\%d}        &   output an \texttt{int} in decimal\\
+    \texttt{\%o}        &   output an \texttt{int} in octal\\
+    \texttt{\%x}        &   output an \texttt{int} in hexadecimal\\
+    \texttt{\%c}        &   output a \texttt{char}\\
+    \texttt{\%f}        &   output a \texttt{double}\\
+    \end{tabular}
+    
+    \subsection{\texttt{printf()} with Formatted Specifier}
+    Now, equipped with formatted specifier, we are able to output a variable. Let's look at the following code.
+\begin{lstlisting}[style=CStyle]
+int a=5;
+int b=3;
+printf("%d+%d=%d",a,b,a+b);
+//outputting "5+3=8" 
+\end{lstlisting} 
+\end{document}
