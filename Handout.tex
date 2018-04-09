@@ -375,8 +375,8 @@ printf("Handsome Liu is so handsome!");
 int num=5;
 printf("num");//outputting "num" instead of "5".
 \end{lstlisting}
-    As a result, we need formatted specifier to tell the compiler you want to output a variable.
-    \subsection{Formatted Specifier}
+    As a result, we need format specifier to tell the compiler you want to output a variable.
+    \subsection{Format Specifier}
     \begin{tabular}{|c|c|}
     Format specifier    &   Description\\
     \hline
@@ -387,12 +387,15 @@ printf("num");//outputting "num" instead of "5".
     \texttt{\%f}        &   output a \texttt{double}\\
     \end{tabular}
     
-    \subsection{\texttt{printf()} with Formatted Specifier}
-    Now, equipped with formatted specifier, we are able to output a variable. Let's look at the following code.
+    \subsection{\texttt{printf()} with Format Specifier}
+    Now, equipped with format specifier, we are able to output a variable. Let's look at the following code.
 \begin{lstlisting}[style=CStyle]
 int a=5;
 int b=3;
 printf("%d+%d=%d",a,b,a+b);
 //outputting "5+3=8" 
 \end{lstlisting} 
+    As you may discover, the format specifiers are replaced by the value you put after the string. Thus, the first \texttt{\%d} is replaced by the value of \texttt{a}, which is "5" in decimal. The second \texttt{\%d} is replaced by the value of \texttt{b}, and the third \texttt{\%d} is replaced by the value of \texttt{a+b}.
+    \subsection{\texttt{scanf()} with Format Specifier}
+    It is necessary that we are able to control the values of some variables while executing the program. One way to achieve this is to 
 \end{document}

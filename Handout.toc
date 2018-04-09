@@ -45,5 +45,5 @@
 \contentsline {subsection}{\numberline {4.3.3}Logical Operator}{19}{subsection.4.3.3}
 \contentsline {section}{\numberline {4.4}Formatting Inputting and Outputting}{19}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}The \texttt {printf()} function}{19}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Formatted Specifier}{20}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}\texttt {printf()} with Formatted Specifier}{20}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.2}Format Specifier}{20}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}\texttt {printf()} with Format Specifier}{20}{subsection.4.4.3}

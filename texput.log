@@ -1,18 +1,18 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Arch Linux) (preloaded format=xelatex 2018.3.19)  6 APR 2018 19:52
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Arch Linux) (preloaded format=xelatex 2018.3.8)  6 APR 2018 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**hw1.tex
+**sol1.tex
 
 ! Emergency stop.
-<*> hw1.tex
-           
+<*> sol1.tex
+            
 End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
  2 strings out of 493007
- 13 string characters out of 6140075
+ 14 string characters out of 6140076
  61811 words of memory out of 5000000
  4075 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
