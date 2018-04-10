@@ -1,0 +1,52 @@
+HandsomeLiu
+\end{terminal}
+    And a program like this
+\begin{lstlisting}[style=CStyle]
+    printf("Handsome
+    Liu");
+\end{lstlisting}
+    will be counted as syntax error.
+
+    It seems that there's no way to achieve this, so we need to define some special "mark" for starting a new line. Things like this are called "Control Characters". For example, '\bs n' is a mark for starting a new line, and will be viewed as a character. Thus, to achieve the goal, we can write a program like this
+
+\begin{lstlisting}[style=CStyle]
+    printf("Handsome\nLiu");
+\end{lstlisting}
+
+The output of this program will be
+\begin{terminal}
+Handsome
+Liu
+\end{terminal}
+
+    \subsection{\texttt{scanf()} with Format Specifier}
+    Sometimes tt is necessary to control the values of some variables while executing the program. One way to achieve this is using \texttt{scanf()} to assign values to integers via inputting while executing.
+
+    Let's look at the following code.
+
+\begin{lstlisting}[style=CStyle]
+#include<stdio.h>
+int main(){
+    printf("Hello!\n");
+    int a, b;
+    scanf("%d%d",&a, &b);
+    printf("%d %d\n",a, b);
+}
+\end{lstlisting}
+After executing this program, the result will be like this.
+\begin{terminal}
+Hello!
+
+\end{terminal}
+Recall that the program will be executed line by line. After line 3 is executed, a \texttt{scanf} is encountered. Thus, the program will suspend and wait for your input.
+
+To input an integer, simply type an integer and press <enter>. For example, after input 7 and 25, the result will be like this.
+
+\begin{terminal}
+Hello!
+7
+25
+7 25
+\end{terminal}
+Note that the \texttt{7} and \texttt{25} in the second and third line is the integers you just typed, and the \texttt{7 25} in the fourth line is the output of line 6.
+\end{document}

@@ -49,3 +49,6 @@
 \contentsline {subsection}{\numberline {4.4.3}\texttt {printf()} with Format Specifier}{20}{subsection.4.4.3}
 \contentsline {subsection}{\numberline {4.4.4}Control Characters}{20}{subsection.4.4.4}
 \contentsline {subsection}{\numberline {4.4.5}\texttt {scanf()} with Format Specifier}{21}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}Branching Statements}{22}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}\texttt {if-else} statement}{22}{subsection.4.5.1}
+\contentsline {subsubsection}{if}{22}{section*.2}

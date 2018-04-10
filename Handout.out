@@ -49,3 +49,5 @@
 \BOOKMARK [2][-]{subsection.4.4.3}{printf\(\)\040with\040Format\040Specifier}{section.4.4}% 49
 \BOOKMARK [2][-]{subsection.4.4.4}{Control\040Characters}{section.4.4}% 50
 \BOOKMARK [2][-]{subsection.4.4.5}{scanf\(\)\040with\040Format\040Specifier}{section.4.4}% 51
+\BOOKMARK [1][-]{section.4.5}{Branching\040Statements}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.5.1}{if-else\040statement}{section.4.5}% 53
