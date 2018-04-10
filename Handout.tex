@@ -31,13 +31,13 @@
 \definecolor{mWhite}{rgb}{0.9,0.9,0.9}
 \lstset{basicstyle=\tt}
 \lstdefinestyle{CStyle}{
-    backgroundcolor=\color{backgroundColour},   
+    backgroundcolor=\color{backgroundColour},
     commentstyle=\color{mGray},
     keywordstyle=\color{mGreen},
     numberstyle=\color{mGray},
     stringstyle=\color{mRed},
     basicstyle=\color{mWhite}\tt,
-    breakatwhitespace=false,         
+    breakatwhitespace=false,
     breaklines=true,                 
     captionpos=b,                    
     keepspaces=true,                 
@@ -49,7 +49,21 @@
     tabsize=2,
     language=C
 }
-
+\lstdefinestyle{CLStyle}{
+    backgroundcolor=\color{backgroundColour},
+    basicstyle=\color{mWhite}\tt,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    showlines=true,
+}
 \title{A Handout For Students in Kan Chiao}
 \author{Handsome Liu}
 
@@ -390,12 +404,72 @@ printf("num");//outputting "num" instead of "5".
     \subsection{\texttt{printf()} with Format Specifier}
     Now, equipped with format specifier, we are able to output a variable. Let's look at the following code.
 \begin{lstlisting}[style=CStyle]
-int a=5;
-int b=3;
-printf("%d+%d=%d",a,b,a+b);
-//outputting "5+3=8" 
+    int a=5;
+    int b=3;
+    printf("%d+%d=%d",a,b,a+b); //outputting "5+3=8" 
 \end{lstlisting} 
     As you may discover, the format specifiers are replaced by the value you put after the string. Thus, the first \texttt{\%d} is replaced by the value of \texttt{a}, which is "5" in decimal. The second \texttt{\%d} is replaced by the value of \texttt{b}, and the third \texttt{\%d} is replaced by the value of \texttt{a+b}.
+
+    \subsection{Control Characters}
+    Now, with \texttt{printf()}, we can output almost anything we want. However, there is still a problem. How to start a new line?
+
+    For example, you want to output two lines contains \texttt{Handsome} and \texttt{Liu} respectively.
+\begin{lstlisting}[style=CStyle]
+    printf("Handsome");
+    printf("Liu");
+\end{lstlisting}
+
+    However, the result of the program above will be like this.
+\begin{lstlisting}[style=CLStyle]
+HandsomeLiu
+\end{lstlisting}
+    And a program like this
+\begin{lstlisting}[style=CStyle]
+    printf("Handsome
+    Liu");
+\end{lstlisting}
+    will be counted as syntax error.
+
+    It seems that there's no way to achieve this, so we need to define some special "mark" for starting a new line. Things like this are called "Control Characters". For example, '\bs n' is a mark for starting a new line, and will be viewed as a character. Thus, to achieve the goal, we can write a program like this
+
+\begin{lstlisting}[style=CStyle]
+    printf("Handsome\nLiu");
+\end{lstlisting}
+
+The output of this program will be
+\begin{lstlisting}[style=CLStyle]
+Handsome
+Liu
+\end{lstlisting}
+
     \subsection{\texttt{scanf()} with Format Specifier}
-    It is necessary that we are able to control the values of some variables while executing the program. One way to achieve this is to 
+    Sometimes tt is necessary to control the values of some variables while executing the program. One way to achieve this is using \texttt{scanf()} to assign values to integers via inputting while executing.
+
+    Let's look at the following code.
+
+\begin{lstlisting}[style=CStyle]
+#include<stdio.h>
+int main(){
+    printf("Hello!\n");
+    int a, b;
+    scanf("%d%d",&a, &b);
+    printf("%d %d\n",a, b);
+}
+\end{lstlisting}
+After executing this program, the result will be like this.
+\begin{lstlisting}[style=CLStyle]
+Hello!
+
+\end{lstlisting}
+Recall that the program will be executed line by line. After line 3 is executed, a \texttt{scanf} is encountered. Thus, the program will suspend and wait for your input.
+
+To input an integer, simply type an integer and press <enter>. For example, after input 7 and 25, the result will be like this.
+
+\begin{lstlisting}[style=CLStyle]
+Hello!
+7
+25
+7 25
+\end{lstlisting}
+Note that the \texttt{7} and \texttt{25} in the second and third line is the integers you just typed, and the \texttt{7 25} in the fourth line is the output of line 6.
 \end{document}

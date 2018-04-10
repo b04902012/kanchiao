@@ -47,3 +47,5 @@
 \BOOKMARK [2][-]{subsection.4.4.1}{The\040printf\(\)\040function}{section.4.4}% 47
 \BOOKMARK [2][-]{subsection.4.4.2}{Format\040Specifier}{section.4.4}% 48
 \BOOKMARK [2][-]{subsection.4.4.3}{printf\(\)\040with\040Format\040Specifier}{section.4.4}% 49
+\BOOKMARK [2][-]{subsection.4.4.4}{Control\040Characters}{section.4.4}% 50
+\BOOKMARK [2][-]{subsection.4.4.5}{scanf\(\)\040with\040Format\040Specifier}{section.4.4}% 51
