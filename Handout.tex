@@ -21,6 +21,8 @@
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \pagestyle{plain}
 \newcommand{\bs}{\textbackslash}
+\newtheorem{exercise}{Exercise}[chapter]
+
 
 \usepackage{xcolor}
 \usepackage{listings}
@@ -432,7 +434,7 @@ HandsomeLiu
 \end{lstlisting}
     will be counted as syntax error.
 
-    It seems that there's no way to achieve this, unless we define some special "marks" for starting a new line. These marks are called "Control Characters". For example, '\bs n' is a mark for starting a new line, and will be viewed as a character. Thus, to achieve the goal, we can write a program like this
+    It seems that there's no way to achieve this, unless we define some special "marks" for starting a new line. These marks are called "Control Characters". For example, '\bs n' is a mark for starting a new line, and will be viewed as a character. Thus, to achieve the goal, we can use \texttt{printf} like this
 
 \begin{lstlisting}[style=CStyle]
     printf("Handsome\nLiu");
@@ -479,6 +481,74 @@ Hello!
 Note that the \texttt{7} and \texttt{25} in the second and third line is the integers you just typed, and the \texttt{7 25} in the fourth line is the output of line 6.
 \section{Branching Statements}
 \subsection{\texttt{if-else} statement}
-    \subsubsection{if}
-\end{document}
+    \subsubsection{\texttt{if}}
+    The syntax of \texttt{if} is quite simple.
+    \begin{lstlisting}[xleftmargin=.4\textwidth]
+if(condition){
+    <statement1>;
+    <statement2>;
+    ...
+}
+    \end{lstlisting}
+    It's concept is also simple. If the condition is true, then go inside the curly brackets and continue executing from \texttt{<statement1>}. Otherwise,skip the curly brackets and continue executing from the first line below the curly brackets.
+    \subsubsection{\texttt{else}}
+    An \texttt{else} must follow an \texttt{if}. Combining with \texttt{else}, the syntax of \texttt{if-else} becomes
+    \begin{lstlisting}[xleftmargin=.4\textwidth]
+if(condition){
+    <statement1>;
+    <statement2>;
+    ...
+}
+else{
+    <statement3>;
+    <statement4>;
+    ...
+}
+    \end{lstlisting}
+    If the condition is true, then go inside the first curly brackets, continue execute from \texttt{<statement1>}, and skip the second curly bracket. Otherwise, skip the first curly brackets, go inside the second curly brackets, and continue executing from \texttt{<statement3>}.
 
+    Note that you should not put semicolons at the end of \texttt{if-else} statements.
+    
+    For example, the following code is a program for checking if an integer \texttt{num} is even or odd.
+\begin{lstlisting}[style=CStyle]
+    if(num%2==0){
+        printf("%d is even.\n",num);
+    }
+    else{
+        printf("%d is odd.\n",num);
+    }
+\end{lstlisting}
+\section{Iteration Statements}
+    \subsection{\texttt{while}}
+    The syntax of \texttt{while} is as follows.
+    \begin{lstlisting}[xleftmargin=.4\textwidth]
+while(condition){
+    <statement1>;
+    <statement2>;
+}
+    \end{lstlisting}
+    A \texttt{while} statement can be viewed as an \texttt{if} statement executed repeatedly until the condition become false. To be more specific, the procedure will be like this.\\
+    1. Check if the condition is true. If not, goto 3.\\
+    2. execute the statements inside the curly brackets, and go back to 1.\\
+    3. Continue executing the statements below the curly brackets.
+    
+    \subsection{\texttt{for}}
+    The syntax of \texttt{for} is a little bit more complicated than \texttt{while}.
+    \begin{lstlisting}[xleftmargin=.4\textwidth]
+for(initialization; condition; updating){
+    <statement1>;
+    <statement2>;
+}
+    \end{lstlisting}
+    While using \texttt{while} statement, there are three things you need to do almost every time. To initialize some variables, to set the condition, and to update some variables.
+
+    For example, if you want to output "Handsome Liu is so handsome !\bs n" for 10 times using \texttt{while} statement, you may write a program like this.
+\begin{lstlisting}[style=CStyle]
+    int counter=0;//initialization
+    while(counter<10){//setting condition
+        printf("Handsome Liu is so handsome !\n");
+        counter=counter+1;//updating
+    }
+\end{lstlisting}
+
+\end{document}
