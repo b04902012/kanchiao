@@ -56,3 +56,7 @@
 \contentsline {section}{\numberline {4.6}Iteration Statements}{23}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}\texttt {while}}{23}{subsection.4.6.1}
 \contentsline {subsection}{\numberline {4.6.2}\texttt {for}}{24}{subsection.4.6.2}
+\contentsline {section}{\numberline {4.7}Array}{24}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Declaration}{24}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Indexing}{25}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.3}Assignment}{25}{subsection.4.7.3}

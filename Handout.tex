@@ -551,4 +551,19 @@ for(initialization; condition; updating){
     }
 \end{lstlisting}
 
+\section{Array}
+    An array is a sequence of elements. The elements must be of same data type. The data type and the length of the array cannot be changed after declared.
+
+    \subsection{Declaration}
+    To declare an array, you need to specify its name, its length, and the data type of its elements. The syntax for declaring an array is
+    \begin{center}\texttt{<data\_type> <name>[<length]}\end{center}
+    For example, if you want to declare an charater array of length 100 named \texttt{c}, the syntax is \texttt{char c[100];}
+    \subsection{Indexing}
+    In mathematics, the elements of a sequence $a$ of length $n$ is written as $a_1, a_2, ..., a_n$.
+
+    In C/C++ and most of the programming languages, the elements of an array \texttt{a} of length \texttt{n} is represented as \texttt{a[0], a[1], ..., a[n-1]}. The number inside the square bracket is called the \textbf{index} of the element. Note that the index of the first element is 0. We call the number system \textit{0-based numbering}.
+
+    \subsection{Assignment}
+    We cannot assign a bunch of values to a whole array through a single statement, but we can assign a value to one of its element. Just treat the element like a variable.
+
 \end{document}
